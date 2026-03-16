@@ -7,7 +7,7 @@ export default function Solution() {
   const bullets = [t("bullet1"), t("bullet2"), t("bullet3")];
 
   return (
-    <section id="solution" className="py-16 sm:py-20 bg-base-200">
+    <section id="solution" className="py-12 sm:py-20 bg-base-200 scroll-mt-24">
       <div className="container mx-auto px-4 md:px-8">
         <div className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div>

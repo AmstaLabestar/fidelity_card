@@ -6,7 +6,7 @@ export default function Preorder() {
   const t = useTranslations("landing.preorder");
 
   return (
-    <section id="preorder" className="py-16 sm:py-20 bg-base-200">
+    <section id="preorder" className="py-12 sm:py-20 bg-base-200 scroll-mt-24">
       <div className="container mx-auto px-4 md:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="card bg-base-100 border border-base-300 shadow-xl overflow-hidden">
@@ -18,11 +18,14 @@ export default function Preorder() {
                   <p className="text-xs sm:text-sm text-base-content/60">{t("note")}</p>
                 </div>
                 <div className="flex flex-col gap-3">
-                  <Link href="/register?intent=preorder" className="btn btn-primary btn-lg rounded-full px-10 group">
+                  <Link
+                    href="/register?intent=preorder"
+                    className="btn btn-primary btn-lg rounded-full px-6 sm:px-10 w-full sm:w-auto group"
+                  >
                     {t("cta")}
                     <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
                   </Link>
-                  <a href="#faq" className="btn btn-ghost rounded-full">
+                  <a href="#faq" className="btn btn-ghost rounded-full w-full sm:w-auto">
                     {t("faqCta")}
                   </a>
                 </div>

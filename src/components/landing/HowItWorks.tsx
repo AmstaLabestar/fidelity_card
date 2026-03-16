@@ -23,7 +23,7 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section id="how-it-works" className="py-16 sm:py-20 bg-base-200">
+    <section id="how-it-works" className="py-12 sm:py-20 bg-base-200 scroll-mt-24">
       <div className="container mx-auto px-4 md:px-8">
         <div className="text-center mb-10 sm:mb-14">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tighter mb-3">
@@ -32,13 +32,13 @@ export default function HowItWorks() {
           <p className="text-base-content/70 max-w-2xl mx-auto">{t("subtitle")}</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {steps.map((step, index) => (
             <div
               key={index}
               className="card bg-base-100 shadow-xl border border-base-300"
             >
-              <div className="card-body items-center text-center p-8 sm:p-10">
+              <div className="card-body items-center text-center p-6 sm:p-10">
                 <div className="w-16 h-16 rounded-2xl bg-base-200 flex items-center justify-center mb-5">
                   {step.icon}
                 </div>
@@ -52,4 +52,3 @@ export default function HowItWorks() {
     </section>
   );
 }
-
