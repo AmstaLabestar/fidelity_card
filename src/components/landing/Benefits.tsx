@@ -28,9 +28,9 @@ export default function Benefits() {
   ];
 
   return (
-    <section id="benefits" className="py-16 sm:py-20 bg-base-100">
+    <section id="benefits" className="py-12 sm:py-20 bg-base-100 scroll-mt-24">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="flex flex-col lg:flex-row items-end justify-between mb-10 sm:mb-14 gap-6">
+        <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between mb-10 sm:mb-14 gap-6">
           <div className="max-w-2xl">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tighter mb-3">
               {t("title")}
@@ -57,4 +57,3 @@ export default function Benefits() {
     </section>
   );
 }
-

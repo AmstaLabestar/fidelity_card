@@ -6,7 +6,7 @@ export default function Footer() {
   const t = useTranslations("footer");
 
   return (
-    <footer className="footer p-10 bg-base-200 text-base-content border-t border-base-300">
+    <footer className="footer p-6 sm:p-10 bg-base-200 text-base-content border-t border-base-300">
       <aside>
         <div className="flex items-center gap-2 font-bold text-2xl tracking-tighter mb-4">
           <div className="bg-primary text-primary-content p-2 rounded-xl">

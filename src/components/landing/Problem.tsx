@@ -11,7 +11,7 @@ export default function Problem() {
   ];
 
   return (
-    <section id="problem" className="py-16 sm:py-20 bg-base-100">
+    <section id="problem" className="py-12 sm:py-20 bg-base-100 scroll-mt-24">
       <div className="container mx-auto px-4 md:px-8">
         <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-14">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tighter mb-3">
@@ -20,7 +20,7 @@ export default function Problem() {
           <p className="text-base-content/70">{t("subtitle")}</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {cards.map((card, index) => (
             <div key={index} className="card bg-base-200 border border-base-300">
               <div className="card-body p-7 sm:p-8">
@@ -37,4 +37,3 @@ export default function Problem() {
     </section>
   );
 }
-

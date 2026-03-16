@@ -6,21 +6,21 @@ export default function Hero() {
   const t = useTranslations("landing.hero");
 
   return (
-    <section className="relative overflow-hidden bg-base-100 pt-14 pb-16 sm:pt-20 sm:pb-24 lg:pt-28 lg:pb-28">
+    <section className="relative overflow-hidden bg-base-100 pt-10 pb-12 sm:pt-20 sm:pb-24 lg:pt-28 lg:pb-28">
       <div className="absolute inset-0 -z-10 opacity-10 pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[45%] h-[45%] bg-primary rounded-full blur-[120px]" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[45%] h-[45%] bg-secondary rounded-full blur-[120px]" />
       </div>
 
       <div className="container mx-auto px-4 md:px-8">
-        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+        <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-10 lg:gap-16">
           <div className="flex-1 text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6">
               <span className="inline-block w-2 h-2 rounded-full bg-primary" />
               <span>{t("badge")}</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-tight mb-5">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-tight mb-5">
               {t("title")}
             </h1>
             <p className="text-base sm:text-lg text-base-content/70 mb-8 max-w-2xl mx-auto lg:mx-0">
@@ -30,26 +30,29 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
               <Link
                 href="/register?intent=preorder"
-                className="btn btn-primary btn-lg rounded-full px-10 group"
+                className="btn btn-primary btn-lg rounded-full px-6 sm:px-10 w-full sm:w-auto group"
               >
                 {t("primaryCta")}
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
               </Link>
-              <a href="#how-it-works" className="btn btn-ghost btn-lg rounded-full px-10">
+              <a
+                href="#how-it-works"
+                className="btn btn-ghost btn-lg rounded-full px-6 sm:px-10 w-full sm:w-auto"
+              >
                 {t("secondaryCta")}
               </a>
             </div>
 
             <div className="mt-9 flex flex-wrap justify-center lg:justify-start gap-2">
-              <div className="badge badge-outline gap-2 py-4 px-4">
+              <div className="badge badge-outline gap-2 py-3 sm:py-4 px-3 sm:px-4">
                 <CreditCard size={16} className="opacity-70" />
                 <span className="font-semibold">{t("chipPhysical")}</span>
               </div>
-              <div className="badge badge-outline gap-2 py-4 px-4">
+              <div className="badge badge-outline gap-2 py-3 sm:py-4 px-3 sm:px-4">
                 <QrCode size={16} className="opacity-70" />
                 <span className="font-semibold">{t("chipTech")}</span>
               </div>
-              <div className="badge badge-outline gap-2 py-4 px-4">
+              <div className="badge badge-outline gap-2 py-3 sm:py-4 px-3 sm:px-4">
                 <MessageCircle size={16} className="opacity-70" />
                 <span className="font-semibold">{t("chipSupport")}</span>
               </div>
@@ -74,7 +77,7 @@ export default function Hero() {
               </div>
 
               <div className="flex flex-col gap-2">
-                <div className="flex gap-3 text-lg font-mono tracking-[0.22em] opacity-80">
+                <div className="flex flex-wrap sm:flex-nowrap gap-x-3 gap-y-1 text-base sm:text-lg font-mono tracking-[0.18em] sm:tracking-[0.22em] opacity-80">
                   <span>****</span>
                   <span>****</span>
                   <span>****</span>
