@@ -12,7 +12,7 @@ export default function Trust() {
   ];
 
   return (
-    <section id="trust" className="py-16 sm:py-20 bg-base-100">
+    <section id="trust" className="py-12 sm:py-20 bg-base-100 scroll-mt-24">
       <div className="container mx-auto px-4 md:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10 sm:mb-14">
@@ -39,4 +39,3 @@ export default function Trust() {
     </section>
   );
 }
-

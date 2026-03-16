@@ -6,7 +6,7 @@ export default function CTA() {
   const t = useTranslations("landing.finalCta");
 
   return (
-    <section className="py-16 sm:py-20 bg-primary text-primary-content overflow-hidden relative">
+    <section className="py-12 sm:py-20 bg-primary text-primary-content overflow-hidden relative">
       <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full -mr-40 -mt-40 blur-3xl" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-black/10 rounded-full -ml-40 -mb-40 blur-3xl" />
 
@@ -21,12 +21,15 @@ export default function CTA() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
             <Link
               href="/register?intent=preorder"
-              className="btn btn-neutral btn-lg rounded-full px-12 text-lg group"
+              className="btn btn-neutral btn-lg rounded-full px-6 sm:px-12 text-base sm:text-lg w-full sm:w-auto group"
             >
               {t("cta")}
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
             </Link>
-            <a href="#how-it-works" className="btn btn-ghost btn-lg rounded-full px-12 text-lg text-primary-content">
+            <a
+              href="#how-it-works"
+              className="btn btn-ghost btn-lg rounded-full px-6 sm:px-12 text-base sm:text-lg w-full sm:w-auto text-primary-content"
+            >
               {t("secondary")}
             </a>
           </div>
@@ -35,4 +38,3 @@ export default function CTA() {
     </section>
   );
 }
-

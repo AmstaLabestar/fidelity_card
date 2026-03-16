@@ -12,7 +12,7 @@ export default function FAQ() {
   ];
 
   return (
-    <section id="faq" className="py-16 sm:py-20 bg-base-100">
+    <section id="faq" className="py-12 sm:py-20 bg-base-100 scroll-mt-24">
       <div className="container mx-auto px-4 md:px-8">
         <div className="text-center mb-10 sm:mb-14">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tighter mb-3">
@@ -36,4 +36,3 @@ export default function FAQ() {
     </section>
   );
 }
-
