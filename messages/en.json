@@ -1,0 +1,255 @@
+{
+  "app": {
+    "name": "SmartCard"
+  },
+  "nav": {
+    "account": "Account",
+    "dashboard": "Dashboard",
+    "admin": "Admin",
+    "login": "Log in",
+    "register": "Create account",
+    "getStarted": "Get started",
+    "preorder": "Preorder",
+    "logout": "Log out",
+    "theme": {
+      "label": "Theme",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    },
+    "language": {
+      "label": "Language",
+      "fr": "FR",
+      "en": "EN"
+    }
+  },
+  "footer": {
+    "tagline": "A QR + contactless discount card to save at partner merchants.",
+    "sections": {
+      "product": "Product",
+      "company": "Company",
+      "legal": "Legal"
+    },
+    "links": {
+      "howItWorks": "How it works",
+      "benefits": "Benefits",
+      "partners": "Partner merchants",
+      "preorder": "Preorder",
+      "faq": "FAQ"
+    }
+  },
+  "landing": {
+    "hero": {
+      "badge": "Save money, simply",
+      "title": "One card. Discounts across town.",
+      "subtitle": "With SmartCard, get discounts at partner restaurants, shops and services. Show your card, the discount applies. No complicated app.",
+      "primaryCta": "Preorder my card",
+      "secondaryCta": "See how it works",
+      "chipPhysical": "Physical card",
+      "chipTech": "QR + contactless",
+      "chipSupport": "WhatsApp support"
+    },
+    "problem": {
+      "title": "Saving should not be complicated",
+      "subtitle": "Good deals are often scattered. We bring discounts together in one place.",
+      "card1Title": "Scattered promos",
+      "card1Body": "Hard to know where the discount is, at the right time.",
+      "card2Title": "Too many cards",
+      "card2Body": "Every store has its own card. You end up forgetting them.",
+      "card3Title": "Too many apps",
+      "card3Body": "No need to install a new app for every benefit."
+    },
+    "solution": {
+      "title": "SmartCard brings discounts into one simple gesture",
+      "subtitle": "A simple card to show, to save at multiple partner merchants.",
+      "bullet1": "One card, multiple partner merchants",
+      "bullet2": "Simple use: scan the QR (or contactless tap)",
+      "bullet3": "Clear pricing, no surprises"
+    },
+    "howItWorks": {
+      "title": "How it works",
+      "subtitle": "3 simple steps.",
+      "step1Title": "Order your card",
+      "step1Body": "Create your account and preorder online.",
+      "step2Title": "Show it at checkout",
+      "step2Body": "At a partner merchant, present your card.",
+      "step3Title": "Instant discount",
+      "step3Body": "The merchant scans the QR (or contactless) and your discount applies."
+    },
+    "benefits": {
+      "title": "Why you'll love it",
+      "subtitle": "Simple to use, real savings every day.",
+      "b1Title": "Everyday savings",
+      "b1Body": "Discounts on categories you already use.",
+      "b2Title": "Multiple merchants",
+      "b2Body": "One card for many partners.",
+      "b3Title": "Very easy to use",
+      "b3Body": "No need to be tech-savvy.",
+      "b4Title": "No complicated app",
+      "b4Body": "Show the card. That's it."
+    },
+    "partners": {
+      "title": "Partners around you",
+      "subtitle": "Restaurants, shops, beauty, services, leisure...",
+      "c1": "Restaurants",
+      "c2": "Shops",
+      "c3": "Beauty & hair",
+      "c4": "Everyday services",
+      "c5": "Leisure"
+    },
+    "trust": {
+      "title": "Built for Burkina Faso",
+      "subtitle": "Clear, simple, mobile-friendly, even on average connections.",
+      "t1": "Physical card: no smartphone required",
+      "t2": "WhatsApp customer support",
+      "t3": "Unique QR to prevent abuse",
+      "t4": "Partner list updated regularly"
+    },
+    "preorder": {
+      "title": "Preorder your card",
+      "subtitle": "Be among the first and get the launch price.",
+      "cta": "Preorder now",
+      "faqCta": "FAQ",
+      "note": "You can track your preorder in your dashboard."
+    },
+    "faq": {
+      "title": "FAQ",
+      "subtitle": "Answers to common questions.",
+      "q1": "Do I need Internet to use the card?",
+      "a1": "No. You show the card and the discount is applied at checkout. Internet is only useful to view the partner list.",
+      "q2": "Do I need an app?",
+      "a2": "No. The card works on its own. Your account helps you manage your preorder and access the partner list.",
+      "q3": "Where can I use SmartCard?",
+      "a3": "At partner merchants. The list is updated regularly in your space.",
+      "q4": "What if I lose my card?",
+      "a4": "You can deactivate it and request a replacement. Your QR can also be retrieved from your account.",
+      "q5": "How do I preorder?",
+      "a5": "Create an account, then confirm the quantity. That's it."
+    },
+    "finalCta": {
+      "title": "Ready to save every day?",
+      "subtitle": "Preorder your SmartCard and start enjoying discounts at launch.",
+      "cta": "Preorder my card",
+      "secondary": "See how it works"
+    }
+  },
+  "dashboard": {
+    "title": "Hi, {name}",
+    "subtitle": "Track your preorders and find helpful info here.",
+    "newPreorder": "New preorder",
+    "fallbackName": "User",
+    "cardStatusBodyReserved": "Preorder received. Your card will be prepared for the next batch.",
+    "cardStatusBodyNotOrdered": "Preorder your card to reserve your spot for launch.",
+    "stats": {
+      "cardsReserved": "Cards reserved",
+      "cardStatus": "Card status",
+      "help": "Need help?"
+    },
+    "status": {
+      "reserved": "Reserved",
+      "notOrdered": "Not ordered",
+      "pending": "Pending",
+      "confirmed": "Confirmed",
+      "delivered": "Delivered"
+    },
+    "orderHistory": "Order history",
+    "table": {
+      "orderId": "Order",
+      "quantity": "Quantity",
+      "status": "Status",
+      "date": "Date"
+    },
+    "empty": {
+      "title": "No orders yet",
+      "body": "Preorder your card to get started.",
+      "cta": "Preorder"
+    },
+    "howToUse": {
+      "title": "How to use the card",
+      "s1": "Show the card at checkout.",
+      "s2": "The merchant scans the QR (or taps contactless).",
+      "s3": "Your discount applies right away."
+    }
+  },
+  "preorderModal": {
+    "title": "Preorder my card",
+    "body": "Choose the quantity to reserve (max 10).",
+    "quantity": "Quantity",
+    "max": "Max 10 cards per person",
+    "confirm": "Confirm preorder",
+    "confirming": "Confirming...",
+    "included1": "Physical card (QR + contactless)",
+    "included2": "Use it at partner merchants",
+    "included3": "Track it in your dashboard",
+    "errors": {
+      "unauthorized": "Please log in to preorder.",
+      "invalidQuantity": "Quantity must be between 1 and 10.",
+      "generic": "Something went wrong. Please try again."
+    }
+  },
+  "admin": {
+    "back": "Back to dashboard",
+    "title": "Admin",
+    "subtitle": "Users and preorders overview.",
+    "mode": "ADMIN MODE",
+    "stats": {
+      "users": "Users",
+      "orders": "Preorders",
+      "cards": "Cards reserved",
+      "pending": "Pending",
+      "confirmed": "Confirmed",
+      "delivered": "Delivered",
+      "price": "Unit price",
+      "revenue": "Est. revenue"
+    },
+    "status": {
+      "pending": "Pending",
+      "confirmed": "Confirmed",
+      "delivered": "Delivered"
+    },
+    "sections": {
+      "recent": "Latest preorders"
+    },
+    "table": {
+      "order": "Order",
+      "customer": "Customer",
+      "qty": "Qty",
+      "status": "Status",
+      "date": "Date"
+    },
+    "priceNotSet": "Not set",
+    "priceHint": "Set CARD_PRICE_XOF in .env (e.g. 1500).",
+    "empty": "No preorders yet."
+  },
+  "auth": {
+    "register": {
+      "title": "Create account",
+      "subtitle": "Join SmartCard and start saving.",
+      "fullName": "Full name",
+      "fullNamePlaceholder": "Ex: Awa Ouedraogo",
+      "email": "Email address",
+      "emailPlaceholder": "name@email.com",
+      "password": "Password",
+      "passwordPlaceholder": "********",
+      "phone": "Phone number (optional)",
+      "phonePlaceholder": "+226 70 00 00 00",
+      "submit": "Create account",
+      "already": "Already have an account?",
+      "loginCta": "Log in"
+    },
+    "login": {
+      "title": "Welcome back",
+      "subtitle": "Log in to manage your account and preorders.",
+      "registeredSuccess": "Registration successful! Please log in.",
+      "invalidCredentials": "Invalid email or password",
+      "email": "Email address",
+      "emailPlaceholder": "name@email.com",
+      "password": "Password",
+      "passwordPlaceholder": "********",
+      "forgot": "Forgot password?",
+      "submit": "Log in",
+      "newHere": "New to SmartCard?",
+      "registerCta": "Create account"
+    }
+  }
+}

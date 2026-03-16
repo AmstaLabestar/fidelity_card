@@ -11,7 +11,7 @@ export async function createPreorder(quantity: number) {
   const session = await getServerSession(authOptions);
 
   if (!session || !session.user) {
-    return { error: "Unauthorized" };
+    return { errorCode: "UNAUTHORIZED" as const };
   }
 
   try {
@@ -27,6 +27,9 @@ export async function createPreorder(quantity: number) {
     return { success: true };
   } catch (error: any) {
     console.error("Preorder error:", error);
-    return { error: error.message || "Failed to place pre-order" };
+    if (error?.message === "INVALID_QUANTITY") {
+      return { errorCode: "INVALID_QUANTITY" as const };
+    }
+    return { errorCode: "UNKNOWN_ERROR" as const };
   }
 }

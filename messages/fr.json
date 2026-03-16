@@ -1,0 +1,255 @@
+{
+  "app": {
+    "name": "SmartCard"
+  },
+  "nav": {
+    "account": "Compte",
+    "dashboard": "Tableau de bord",
+    "admin": "Admin",
+    "login": "Se connecter",
+    "register": "Créer un compte",
+    "getStarted": "Commencer",
+    "preorder": "Précommander",
+    "logout": "Déconnexion",
+    "theme": {
+      "label": "Thème",
+      "light": "Clair",
+      "dark": "Sombre",
+      "system": "Système"
+    },
+    "language": {
+      "label": "Langue",
+      "fr": "FR",
+      "en": "EN"
+    }
+  },
+  "footer": {
+    "tagline": "Une carte de réductions (QR + sans contact) pour économiser chez des commerces partenaires.",
+    "sections": {
+      "product": "Produit",
+      "company": "Entreprise",
+      "legal": "Légal"
+    },
+    "links": {
+      "howItWorks": "Comment ça marche",
+      "benefits": "Avantages",
+      "partners": "Commerces partenaires",
+      "preorder": "Précommande",
+      "faq": "FAQ"
+    }
+  },
+  "landing": {
+    "hero": {
+      "badge": "Payez moins, simplement",
+      "title": "Une seule carte. Des réductions partout en ville.",
+      "subtitle": "Avec la carte SmartCard, profitez de réductions chez des restaurants, boutiques et services partenaires. Vous présentez la carte, la réduction s'applique. Pas d'application compliquée.",
+      "primaryCta": "Précommander ma carte",
+      "secondaryCta": "Voir comment ça marche",
+      "chipPhysical": "Carte physique",
+      "chipTech": "QR + sans contact",
+      "chipSupport": "Support WhatsApp"
+    },
+    "problem": {
+      "title": "Économiser ne devrait pas être compliqué",
+      "subtitle": "Les bons plans sont souvent dispersés. Nous regroupons les réductions au même endroit.",
+      "card1Title": "Promos dispersées",
+      "card1Body": "Difficile de savoir où il y a une réduction, au bon moment.",
+      "card2Title": "Trop de cartes",
+      "card2Body": "Chaque commerce a sa carte. On finit par les oublier.",
+      "card3Title": "Trop d'applications",
+      "card3Body": "Pas envie d'installer une nouvelle appli pour chaque avantage."
+    },
+    "solution": {
+      "title": "SmartCard rassemble les réductions en un seul geste",
+      "subtitle": "Une carte simple à présenter, pour profiter d'avantages chez plusieurs commerces.",
+      "bullet1": "Une carte, plusieurs commerces partenaires",
+      "bullet2": "Utilisation simple: on scanne le QR (ou sans contact)",
+      "bullet3": "Un prix clair, sans surprise"
+    },
+    "howItWorks": {
+      "title": "Comment ça marche",
+      "subtitle": "3 étapes, très simple.",
+      "step1Title": "Commandez votre carte",
+      "step1Body": "Créez votre compte et précommandez en ligne.",
+      "step2Title": "Présentez-la en caisse",
+      "step2Body": "Chez un commerce partenaire, montrez votre carte.",
+      "step3Title": "Réduction immédiate",
+      "step3Body": "Le commerçant scanne le QR (ou sans contact) et la réduction s'applique."
+    },
+    "benefits": {
+      "title": "Pourquoi vous allez aimer",
+      "subtitle": "Un fonctionnement simple, pour de vraies économies au quotidien.",
+      "b1Title": "Économisez au quotidien",
+      "b1Body": "Des réductions sur des catégories que vous utilisez déjà.",
+      "b2Title": "Plusieurs commerces",
+      "b2Body": "Une seule carte pour plusieurs partenaires.",
+      "b3Title": "Très simple à utiliser",
+      "b3Body": "Pas besoin d'être à l'aise avec la technologie.",
+      "b4Title": "Pas d'appli compliquée",
+      "b4Body": "Vous présentez la carte. C'est tout."
+    },
+    "partners": {
+      "title": "Des partenaires autour de vous",
+      "subtitle": "Restaurants, boutiques, coiffure, services, loisirs...",
+      "c1": "Restaurants et maquis",
+      "c2": "Boutiques",
+      "c3": "Coiffure et beauté",
+      "c4": "Services du quotidien",
+      "c5": "Loisirs"
+    },
+    "trust": {
+      "title": "Pensée pour le Burkina Faso",
+      "subtitle": "Clair, simple, utile sur mobile, même avec une connexion moyenne.",
+      "t1": "Carte physique: pas besoin de smartphone",
+      "t2": "Support client sur WhatsApp",
+      "t3": "QR unique pour éviter les abus",
+      "t4": "Liste des partenaires mise à jour régulièrement"
+    },
+    "preorder": {
+      "title": "Précommandez votre carte",
+      "subtitle": "Soyez parmi les premiers et profitez du tarif de lancement.",
+      "cta": "Je précommande",
+      "faqCta": "FAQ",
+      "note": "Vous pourrez suivre votre précommande dans votre tableau de bord."
+    },
+    "faq": {
+      "title": "Questions fréquentes",
+      "subtitle": "Les réponses aux questions les plus courantes.",
+      "q1": "Faut-il Internet pour utiliser la carte ?",
+      "a1": "Non. Vous présentez la carte et la réduction est appliquée en caisse. Internet sert seulement à consulter la liste des partenaires.",
+      "q2": "Est-ce qu'il faut une application ?",
+      "a2": "Non. La carte fonctionne toute seule. Votre compte sert à gérer la précommande et retrouver la liste des partenaires.",
+      "q3": "Où puis-je utiliser SmartCard ?",
+      "a3": "Chez les commerces partenaires. La liste est mise à jour régulièrement dans votre espace.",
+      "q4": "Et si je perds ma carte ?",
+      "a4": "Vous pourrez la désactiver et en demander une nouvelle. Votre QR peut aussi être retrouvé depuis votre compte.",
+      "q5": "Comment précommander ?",
+      "a5": "Créez un compte, puis confirmez la quantité. C'est tout."
+    },
+    "finalCta": {
+      "title": "Prêt(e) à payer moins au quotidien ?",
+      "subtitle": "Précommandez votre carte SmartCard et profitez des réductions dès le lancement.",
+      "cta": "Précommander ma carte",
+      "secondary": "Voir comment ça marche"
+    }
+  },
+  "dashboard": {
+    "title": "Bonjour, {name}",
+    "subtitle": "Suivez vos précommandes et retrouvez les infos utiles ici.",
+    "newPreorder": "Nouvelle précommande",
+    "fallbackName": "Utilisateur",
+    "cardStatusBodyReserved": "Précommande enregistrée. Votre carte sera préparée pour le prochain lot.",
+    "cardStatusBodyNotOrdered": "Précommandez votre carte pour réserver votre place au lancement.",
+    "stats": {
+      "cardsReserved": "Cartes précommandées",
+      "cardStatus": "Statut de la carte",
+      "help": "Besoin d'aide ?"
+    },
+    "status": {
+      "reserved": "Réservée",
+      "notOrdered": "Non commandée",
+      "pending": "En attente",
+      "confirmed": "Confirmée",
+      "delivered": "Livrée"
+    },
+    "orderHistory": "Historique",
+    "table": {
+      "orderId": "Commande",
+      "quantity": "Quantité",
+      "status": "Statut",
+      "date": "Date"
+    },
+    "empty": {
+      "title": "Aucune commande pour l'instant",
+      "body": "Précommandez votre carte pour commencer.",
+      "cta": "Précommander"
+    },
+    "howToUse": {
+      "title": "Comment utiliser la carte",
+      "s1": "Présentez la carte en caisse.",
+      "s2": "Le commerçant scanne le QR (ou sans contact).",
+      "s3": "La réduction s'applique immédiatement."
+    }
+  },
+  "preorderModal": {
+    "title": "Précommander ma carte",
+    "body": "Choisissez la quantité à réserver (max 10).",
+    "quantity": "Quantité",
+    "max": "Max 10 cartes par personne",
+    "confirm": "Confirmer la précommande",
+    "confirming": "Confirmation...",
+    "included1": "Carte physique (QR + sans contact)",
+    "included2": "Utilisable chez les partenaires",
+    "included3": "Suivi dans le tableau de bord",
+    "errors": {
+      "unauthorized": "Veuillez vous connecter pour précommander.",
+      "invalidQuantity": "La quantité doit être comprise entre 1 et 10.",
+      "generic": "Une erreur est survenue. Réessayez dans un instant."
+    }
+  },
+  "admin": {
+    "back": "Retour au tableau de bord",
+    "title": "Administration",
+    "subtitle": "Vue d'ensemble des utilisateurs et des précommandes.",
+    "mode": "MODE ADMIN",
+    "stats": {
+      "users": "Utilisateurs",
+      "orders": "Précommandes",
+      "cards": "Cartes réservées",
+      "pending": "En attente",
+      "confirmed": "Confirmées",
+      "delivered": "Livrées",
+      "price": "Tarif unitaire",
+      "revenue": "CA estimé"
+    },
+    "status": {
+      "pending": "En attente",
+      "confirmed": "Confirmée",
+      "delivered": "Livrée"
+    },
+    "sections": {
+      "recent": "Dernières précommandes"
+    },
+    "table": {
+      "order": "Commande",
+      "customer": "Client",
+      "qty": "Qté",
+      "status": "Statut",
+      "date": "Date"
+    },
+    "priceNotSet": "Non configuré",
+    "priceHint": "Définissez CARD_PRICE_XOF dans .env (ex: 1500).",
+    "empty": "Aucune précommande pour l'instant."
+  },
+  "auth": {
+    "register": {
+      "title": "Créer un compte",
+      "subtitle": "Rejoignez SmartCard et commencez à économiser.",
+      "fullName": "Nom complet",
+      "fullNamePlaceholder": "Ex: Awa Ouédraogo",
+      "email": "Adresse email",
+      "emailPlaceholder": "exemple@email.com",
+      "password": "Mot de passe",
+      "passwordPlaceholder": "********",
+      "phone": "Numéro de téléphone (optionnel)",
+      "phonePlaceholder": "+226 70 00 00 00",
+      "submit": "Créer mon compte",
+      "already": "Vous avez déjà un compte ?",
+      "loginCta": "Se connecter"
+    },
+    "login": {
+      "title": "Connexion",
+      "subtitle": "Connectez-vous pour gérer votre compte et vos précommandes.",
+      "registeredSuccess": "Inscription réussie ! Connectez-vous.",
+      "invalidCredentials": "Email ou mot de passe incorrect",
+      "email": "Adresse email",
+      "emailPlaceholder": "exemple@email.com",
+      "password": "Mot de passe",
+      "passwordPlaceholder": "********",
+      "forgot": "Mot de passe oublié ?",
+      "submit": "Se connecter",
+      "newHere": "Nouveau sur SmartCard ?",
+      "registerCta": "Créer un compte"
+    }
+  }
+}

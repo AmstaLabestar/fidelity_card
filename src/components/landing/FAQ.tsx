@@ -1,48 +1,33 @@
-"use client";
-
-const faqs = [
-  {
-    question: "How do I use the card at a merchant?",
-    answer: "Simply present your card at the checkout. The merchant will either tap it on their SmartCard scanner or scan the QR code on the back. Your discount is applied instantly to your bill."
-  },
-  {
-    question: "Is there a monthly subscription fee?",
-    answer: "No! For the Founder's Edition, you pay once and get lifetime access to the discount network. We believe in simple, transparent value."
-  },
-  {
-    question: "Where can I see the list of partner merchants?",
-    answer: "Once you create an account, you'll have access to our merchant directory. We are launching in major cities first and expanding rapidly."
-  },
-  {
-    question: "What happens if I lose my card?",
-    answer: "You can deactivate your lost card and order a replacement through your dashboard for a small shipping and handling fee. Your digital QR code in the app will still work!"
-  },
-  {
-    question: "When will I receive my card?",
-    answer: "We are currently in the pre-order phase to finalize merchant partnerships. We expect to ship the first batch of Founder's Edition cards in Q3 2024."
-  }
-];
+import { useTranslations } from "next-intl";
 
 export default function FAQ() {
+  const t = useTranslations("landing.faq");
+
+  const faqs = [
+    { q: t("q1"), a: t("a1") },
+    { q: t("q2"), a: t("a2") },
+    { q: t("q3"), a: t("a3") },
+    { q: t("q4"), a: t("a4") },
+    { q: t("q5"), a: t("a5") },
+  ];
+
   return (
-    <section className="py-24 bg-base-100">
+    <section id="faq" className="py-16 sm:py-20 bg-base-100">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-5xl font-black tracking-tighter mb-4">Frequently Asked Questions</h2>
-          <p className="text-base-content/60 max-w-2xl mx-auto">
-            Everything you need to know about the SmartCard network.
-          </p>
+        <div className="text-center mb-10 sm:mb-14">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tighter mb-3">
+            {t("title")}
+          </h2>
+          <p className="text-base-content/70 max-w-2xl mx-auto">{t("subtitle")}</p>
         </div>
 
-        <div className="max-w-3xl mx-auto space-y-4">
+        <div className="max-w-3xl mx-auto space-y-3">
           {faqs.map((faq, index) => (
             <div key={index} className="collapse collapse-plus bg-base-200 border border-base-300">
-              <input type="radio" name="my-accordion-3" defaultChecked={index === 0} /> 
-              <div className="collapse-title text-xl font-bold">
-                {faq.question}
-              </div>
-              <div className="collapse-content text-base-content/70"> 
-                <p>{faq.answer}</p>
+              <input type="radio" name="landing-faq" defaultChecked={index === 0} />
+              <div className="collapse-title text-lg font-black">{faq.q}</div>
+              <div className="collapse-content text-base-content/70">
+                <p>{faq.a}</p>
               </div>
             </div>
           ))}
@@ -51,3 +36,4 @@ export default function FAQ() {
     </section>
   );
 }
+

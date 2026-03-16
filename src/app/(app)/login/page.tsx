@@ -1,17 +1,20 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
+import { Suspense, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { signIn } from "next-auth/react";
-import { useRouter, useSearchParams } from "next/navigation";
-import Link from "next/link";
 import { CreditCard, Loader2 } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { Link, useRouter } from "@/src/i18n/navigation";
 
 function LoginForm() {
+  const t = useTranslations("auth.login");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
   const searchParams = useSearchParams();
   const registered = searchParams.get("registered");
+  const intent = searchParams.get("intent");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -29,12 +32,13 @@ function LoginForm() {
     });
 
     if (result?.error) {
-      setError("Invalid email or password");
+      setError(t("invalidCredentials"));
       setIsLoading(false);
-    } else {
-      router.push("/dashboard");
-      router.refresh();
+      return;
     }
+
+    const nextPath = intent === "preorder" ? "/dashboard?preorder=1" : "/dashboard";
+    router.push(nextPath);
   }
 
   return (
@@ -44,15 +48,13 @@ function LoginForm() {
           <div className="bg-primary text-primary-content p-3 rounded-2xl mb-4">
             <CreditCard size={32} />
           </div>
-          <h1 className="text-3xl font-black tracking-tighter">Welcome Back</h1>
-          <p className="text-base-content/60 text-center mt-2">
-            Login to manage your SmartCard and pre-orders.
-          </p>
+          <h1 className="text-3xl font-black tracking-tighter">{t("title")}</h1>
+          <p className="text-base-content/60 text-center mt-2">{t("subtitle")}</p>
         </div>
 
         {registered && !error && (
           <div className="alert alert-success mb-6 rounded-xl text-sm py-3">
-            <span>Registration successful! Please login.</span>
+            <span>{t("registeredSuccess")}</span>
           </div>
         )}
 
@@ -65,46 +67,48 @@ function LoginForm() {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-semibold">Email Address</span>
+              <span className="label-text font-semibold">{t("email")}</span>
             </label>
-            <input 
+            <input
               name="email"
-              type="email" 
-              placeholder="john@example.com" 
-              className="input input-bordered rounded-xl focus:input-primary" 
-              required 
+              type="email"
+              placeholder={t("emailPlaceholder")}
+              className="input input-bordered rounded-xl focus:input-primary"
+              required
             />
           </div>
 
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-semibold">Password</span>
+              <span className="label-text font-semibold">{t("password")}</span>
             </label>
-            <input 
+            <input
               name="password"
-              type="password" 
-              placeholder="••••••••" 
-              className="input input-bordered rounded-xl focus:input-primary" 
-              required 
+              type="password"
+              placeholder={t("passwordPlaceholder")}
+              className="input input-bordered rounded-xl focus:input-primary"
+              required
             />
             <label className="label">
-              <span className="label-text-alt link link-hover">Forgot password?</span>
+              <span className="label-text-alt link link-hover">{t("forgot")}</span>
             </label>
           </div>
 
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             className="btn btn-primary w-full rounded-xl mt-6"
             disabled={isLoading}
           >
-            {isLoading ? <Loader2 className="animate-spin" /> : "Login"}
+            {isLoading ? <Loader2 className="animate-spin" /> : t("submit")}
           </button>
         </form>
 
-        <div className="divider my-8 text-xs text-base-content/40 uppercase tracking-widest">New to SmartCard?</div>
+        <div className="divider my-8 text-xs text-base-content/40 uppercase tracking-widest">
+          {t("newHere")}
+        </div>
 
         <Link href="/register" className="btn btn-outline w-full rounded-xl">
-          Create an Account
+          {t("registerCta")}
         </Link>
       </div>
     </div>
@@ -120,3 +124,4 @@ export default function LoginPage() {
     </div>
   );
 }
+

@@ -1,5 +1,9 @@
 import prisma from '@/src/lib/prisma';
-import { Preorder } from '@prisma/client';
+import { Preorder, Prisma } from '@prisma/client';
+
+export type PreorderWithUser = Prisma.PreorderGetPayload<{
+  include: { user: { select: { name: true; email: true; phone: true } } };
+}>;
 
 export interface IPreorderRepository {
   findByUserId(userId: string): Promise<Preorder[]>;
@@ -37,5 +41,34 @@ export class PreorderRepository implements IPreorderRepository {
       },
     });
     return result._sum.quantity || 0;
+  }
+
+  async countByStatus(): Promise<Record<string, number>> {
+    const rows = await prisma.preorder.groupBy({
+      by: ["status"],
+      _count: { _all: true },
+    });
+
+    const result: Record<string, number> = {};
+    for (const row of rows) {
+      result[row.status] = row._count._all;
+    }
+    return result;
+  }
+
+  async findRecentWithUser(take = 10): Promise<PreorderWithUser[]> {
+    return prisma.preorder.findMany({
+      orderBy: { createdAt: "desc" },
+      take,
+      include: {
+        user: {
+          select: {
+            name: true,
+            email: true,
+            phone: true,
+          },
+        },
+      },
+    });
   }
 }

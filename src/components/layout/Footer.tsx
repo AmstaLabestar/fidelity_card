@@ -1,6 +1,10 @@
-import { CreditCard, Github, Twitter, Instagram } from 'lucide-react';
+import { CreditCard, Github, Instagram, Twitter } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { Link } from "@/src/i18n/navigation";
 
 export default function Footer() {
+  const t = useTranslations("footer");
+
   return (
     <footer className="footer p-10 bg-base-200 text-base-content border-t border-base-300">
       <aside>
@@ -10,27 +14,26 @@ export default function Footer() {
           </div>
           <span>SmartCard</span>
         </div>
-        <p>SmartCard RFID Network.<br/>Revolutionizing local commerce since 2024.</p>
+        <p>{t("tagline")}</p>
       </aside> 
       <nav>
-        <h6 className="footer-title">Product</h6> 
-        <a className="link link-hover">How it works</a>
-        <a className="link link-hover">Benefits</a>
-        <a className="link link-hover">Pricing</a>
-        <a className="link link-hover">FAQ</a>
+        <h6 className="footer-title">{t("sections.product")}</h6>
+        <Link href="/#how-it-works" className="link link-hover">
+          {t("links.howItWorks")}
+        </Link>
+        <Link href="/#benefits" className="link link-hover">
+          {t("links.benefits")}
+        </Link>
+        <Link href="/#partners" className="link link-hover">
+          {t("links.partners")}
+        </Link>
+        <Link href="/#preorder" className="link link-hover">
+          {t("links.preorder")}
+        </Link>
+        <Link href="/#faq" className="link link-hover">
+          {t("links.faq")}
+        </Link>
       </nav> 
-      <nav>
-        <h6 className="footer-title">Company</h6> 
-        <a className="link link-hover">About us</a>
-        <a className="link link-hover">Contact</a>
-        <a className="link link-hover">Partners</a>
-      </nav> 
-      <nav>
-        <h6 className="footer-title">Legal</h6> 
-        <a className="link link-hover">Terms of use</a>
-        <a className="link link-hover">Privacy policy</a>
-        <a className="link link-hover">Cookie policy</a>
-      </nav>
       <div className="flex gap-4 mt-4">
         <Twitter className="cursor-pointer hover:text-primary transition-colors" size={20} />
         <Instagram className="cursor-pointer hover:text-primary transition-colors" size={20} />

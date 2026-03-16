@@ -13,7 +13,8 @@ export class PreorderService {
 
   async placePreorder(userId: string, quantity: number) {
     if (quantity < 1 || quantity > 10) {
-      throw new Error("Quantity must be between 1 and 10");
+      // Return a stable error code; the UI translates it (FR/EN).
+      throw new Error("INVALID_QUANTITY");
     }
 
     return this.preorderRepository.create({ userId, quantity });
