@@ -27,6 +27,7 @@ export default function PreorderModal({ isOpen, onClose }: PreorderModalProps) {
     if (!errorCode) return null;
     if (errorCode === "UNAUTHORIZED") return t("errors.unauthorized");
     if (errorCode === "INVALID_QUANTITY") return t("errors.invalidQuantity");
+    if (errorCode === "RATE_LIMITED") return t("errors.rateLimited");
     return t("errors.generic");
   }, [errorCode, t]);
 

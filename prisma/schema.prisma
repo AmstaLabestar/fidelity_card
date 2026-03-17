@@ -3,8 +3,14 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")   // App runtime
+  directUrl = env("DIRECT_URL")     // Migrations / CI
+}
+enum PreorderStatus {
+  pending
+  confirmed
+  delivered
 }
 
 model User {
@@ -23,7 +29,10 @@ model Preorder {
   userId    String
   user      User     @relation(fields: [userId], references: [id])
   quantity  Int      @default(1)
-  status    String   @default("pending") // pending, confirmed, delivered
+  status    PreorderStatus @default(pending)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@index([userId, createdAt])
+  @@index([status])
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { Globe } from "lucide-react";
 import { memo, startTransition, useCallback } from "react";
 import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/src/i18n/navigation";
@@ -21,30 +22,32 @@ function LocaleSwitcher() {
   );
 
   return (
-    <div className="join" aria-label="Language switcher">
-      <button
-        type="button"
-        onClick={() => setLocale("fr")}
-        className={[
-          "btn btn-xs join-item",
-          locale === "fr" ? "btn-primary" : "btn-ghost",
-        ].join(" ")}
-      >
-        FR
+    <div className="dropdown dropdown-end">
+      <button type="button" className="btn btn-ghost btn-xs" aria-label="Language">
+        <Globe size={14} />
       </button>
-      <button
-        type="button"
-        onClick={() => setLocale("en")}
-        className={[
-          "btn btn-xs join-item",
-          locale === "en" ? "btn-primary" : "btn-ghost",
-        ].join(" ")}
-      >
-        EN
-      </button>
+      <ul className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-40 border border-base-200 z-[60]">
+        <li>
+          <button
+            type="button"
+            className={locale === "fr" ? "active" : undefined}
+            onClick={() => setLocale("fr")}
+          >
+            Français
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            className={locale === "en" ? "active" : undefined}
+            onClick={() => setLocale("en")}
+          >
+            English
+          </button>
+        </li>
+      </ul>
     </div>
   );
 }
 
 export default memo(LocaleSwitcher);
-

@@ -4,6 +4,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/src/lib/auth";
 import { PreorderService } from "@/src/services/PreorderService";
 import { revalidatePath } from "next/cache";
+import { rateLimit } from "@/src/lib/rateLimit";
 
 const preorderService = new PreorderService();
 
@@ -16,12 +17,11 @@ export async function createPreorder(quantity: number) {
 
   try {
     const userId = (session.user as any).id;
+
+    const check = rateLimit(`preorder:create:user:${userId}`, { windowMs: 60 * 60 * 1000, max: 30 });
+    if (!check.ok) return { errorCode: "RATE_LIMITED" as const };
+
     const preorder = await preorderService.placePreorder(userId, quantity);
-    
-    // Simulated Email Notification
-    console.log(`[SIMULATED EMAIL] To: ${session.user.email}`);
-    console.log(`Subject: SmartCard Pre-order Confirmed!`);
-    console.log(`Body: Hi ${session.user.name}, your pre-order for ${quantity} SmartCard(s) has been received. Order ID: ${preorder.id}`);
 
     revalidatePath("/dashboard");
     return { success: true };

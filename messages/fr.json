@@ -184,6 +184,7 @@
     "errors": {
       "unauthorized": "Veuillez vous connecter pour précommander.",
       "invalidQuantity": "La quantité doit être comprise entre 1 et 10.",
+      "rateLimited": "Trop de tentatives. Réessayez dans quelques minutes.",
       "generic": "Une erreur est survenue. Réessayez dans un instant."
     }
   },

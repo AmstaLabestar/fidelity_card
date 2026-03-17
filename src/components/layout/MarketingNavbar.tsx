@@ -1,7 +1,6 @@
 import { CreditCard, Menu } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/src/i18n/navigation";
-import LocaleSwitcher from "@/src/components/ui/LocaleSwitcher";
 import ThemeToggle from "@/src/components/ui/ThemeToggle";
 
 export default function MarketingNavbar() {
@@ -19,7 +18,6 @@ export default function MarketingNavbar() {
         </Link>
       </div>
       <div className="flex-none flex items-center gap-1 sm:gap-2">
-        <LocaleSwitcher />
         <ThemeToggle />
 
         <div className="hidden lg:flex items-center gap-2">

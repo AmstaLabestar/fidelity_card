@@ -1,4 +1,4 @@
-import { CreditCard, Github, Instagram, Twitter } from "lucide-react";
+import { CreditCard, Facebook, Instagram, Linkedin, MessageCircle } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/src/i18n/navigation";
 
@@ -35,9 +35,42 @@ export default function Footer() {
         </Link>
       </nav> 
       <div className="flex gap-4 mt-4">
-        <Twitter className="cursor-pointer hover:text-primary transition-colors" size={20} />
-        <Instagram className="cursor-pointer hover:text-primary transition-colors" size={20} />
-        <Github className="cursor-pointer hover:text-primary transition-colors" size={20} />
+        <a
+          href="https://www.facebook.com/Tangagroupbf?mibextid=ZbWKwL"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+          className="inline-flex hover:text-primary transition-colors"
+        >
+          <Facebook size={20} />
+        </a>
+        <a
+          href="https://www.instagram.com/tanga.group"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          className="inline-flex hover:text-primary transition-colors"
+        >
+          <Instagram size={20} />
+        </a>
+        <a
+          href="https://www.linkedin.com/company/tanga-group/posts/?feedView=all"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          className="inline-flex hover:text-primary transition-colors"
+        >
+          <Linkedin size={20} />
+        </a>
+        <a
+          href="https://wa.me/22667402030"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
+          className="inline-flex hover:text-primary transition-colors"
+        >
+          <MessageCircle size={20} />
+        </a>
       </div>
     </footer>
   );
