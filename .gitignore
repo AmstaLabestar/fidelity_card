@@ -1,6 +1,8 @@
 node_modules/
 .next/
 .npm-cache/
+playwright-report/
+test-results/
 build/
 dist/
 coverage/
@@ -15,4 +17,4 @@ prisma/*.db
 
 build-child_process.log
 build-*.log
-
+null

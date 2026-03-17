@@ -17,11 +17,6 @@ export async function createPreorder(quantity: number) {
   try {
     const userId = (session.user as any).id;
     const preorder = await preorderService.placePreorder(userId, quantity);
-    
-    // Simulated Email Notification
-    console.log(`[SIMULATED EMAIL] To: ${session.user.email}`);
-    console.log(`Subject: SmartCard Pre-order Confirmed!`);
-    console.log(`Body: Hi ${session.user.name}, your pre-order for ${quantity} SmartCard(s) has been received. Order ID: ${preorder.id}`);
 
     revalidatePath("/dashboard");
     return { success: true };

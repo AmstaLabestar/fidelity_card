@@ -9,10 +9,7 @@ import ThemeToggle from "@/src/components/ui/ThemeToggle";
 export default function Navbar() {
   const t = useTranslations("nav");
   const { data: session } = useSession();
-  const adminEmail =
-    process.env.NEXT_PUBLIC_ADMIN_EMAIL ??
-    (process.env.NODE_ENV === "production" ? undefined : "amsta405@gmail.com");
-  const isAdmin = Boolean(adminEmail && session?.user?.email === adminEmail);
+  const isAdmin = Boolean(session?.user?.isAdmin);
 
   return (
     <div className="navbar bg-base-100/80 backdrop-blur-md border-b border-base-200 sticky top-0 z-50 px-4 lg:px-8">

@@ -5,10 +5,10 @@ import { ArrowLeft, Clock, CreditCard, Coins, ShoppingBag, Users } from "lucide-
 import { Link, redirect } from "@/src/i18n/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 
-const configuredAdminEmail = process.env.ADMIN_EMAIL || process.env.NEXT_PUBLIC_ADMIN_EMAIL;
+const configuredAdminEmail = process.env.ADMIN_EMAIL?.trim();
 
 if (process.env.NODE_ENV === "production" && !configuredAdminEmail) {
-  throw new Error("ADMIN_EMAIL (or NEXT_PUBLIC_ADMIN_EMAIL) must be set in production.");
+  throw new Error("ADMIN_EMAIL must be set in production.");
 }
 
 const ADMIN_EMAIL = configuredAdminEmail ?? "amsta405@gmail.com";
@@ -18,7 +18,10 @@ export default async function AdminDashboardPage() {
   const t = await getTranslations("admin");
   const session = await getServerSession(authOptions);
 
-  if (!session || session.user?.email !== ADMIN_EMAIL) {
+  const isAdmin =
+    Boolean(session?.user?.isAdmin) || Boolean(session?.user?.email && session.user.email === ADMIN_EMAIL);
+
+  if (!session || !isAdmin) {
     redirect({ href: "/dashboard", locale });
   }
 
