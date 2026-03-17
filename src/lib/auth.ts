@@ -2,6 +2,7 @@ import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { UserRepository } from "@/src/repositories/UserRepository";
 import bcrypt from "bcryptjs";
+import { getClientIpFromHeaders, rateLimit } from "@/src/lib/rateLimit";
 
 const userRepository = new UserRepository();
 
@@ -21,10 +22,22 @@ export const authOptions: NextAuthOptions = {
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" }
       },
-      async authorize(credentials) {
+      async authorize(credentials, req) {
         if (!credentials?.email || !credentials?.password) return null;
 
         const email = credentials.email.trim().toLowerCase();
+
+        const headerLike = (req as any)?.headers;
+        const ip = headerLike?.get ? getClientIpFromHeaders(headerLike) : null;
+
+        if (ip) {
+          const ipCheck = rateLimit(`auth:login:ip:${ip}`, { windowMs: 10 * 60 * 1000, max: 20 });
+          if (!ipCheck.ok) return null;
+        }
+
+        const emailCheck = rateLimit(`auth:login:email:${email}`, { windowMs: 10 * 60 * 1000, max: 10 });
+        if (!emailCheck.ok) return null;
+
         const user = await userRepository.findByEmail(email);
         if (!user) return null;
 
@@ -42,6 +55,30 @@ export const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt",
   },
+  useSecureCookies: process.env.NODE_ENV === "production",
+  cookies:
+    process.env.NODE_ENV === "production"
+      ? {
+          sessionToken: {
+            name: "__Secure-next-auth.session-token",
+            options: {
+              httpOnly: true,
+              sameSite: "lax",
+              path: "/",
+              secure: true,
+            },
+          },
+          csrfToken: {
+            name: "__Host-next-auth.csrf-token",
+            options: {
+              httpOnly: true,
+              sameSite: "lax",
+              path: "/",
+              secure: true,
+            },
+          },
+        }
+      : undefined,
   pages: {
     signIn: "/login",
   },

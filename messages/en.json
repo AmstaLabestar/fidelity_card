@@ -184,6 +184,7 @@
     "errors": {
       "unauthorized": "Please log in to preorder.",
       "invalidQuantity": "Quantity must be between 1 and 10.",
+      "rateLimited": "Too many attempts. Please try again in a few minutes.",
       "generic": "Something went wrong. Please try again."
     }
   },
