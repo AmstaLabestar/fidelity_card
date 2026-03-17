@@ -8,7 +8,7 @@ import { getLocale } from "next-intl/server";
 export default async function DashboardPage({
   searchParams,
 }: {
-  searchParams?: Record<string, string | string[] | undefined>;
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const locale = await getLocale();
   const session = await getServerSession(authOptions);
@@ -21,7 +21,8 @@ export default async function DashboardPage({
   const userId = (session.user as any).id;
   const preorders = await preorderService.getUserPreorders(userId);
 
-  const preorderParam = searchParams?.preorder;
+  const resolvedSearchParams = searchParams ? await searchParams : undefined;
+  const preorderParam = resolvedSearchParams?.preorder;
   const openPreorderOnLoad =
     preorderParam === "1" ||
     preorderParam === "true" ||

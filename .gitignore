@@ -1,19 +1,63 @@
+# --- Dependencies / package managers ---
 node_modules/
-.next/
 .npm-cache/
-playwright-report/
-test-results/
+.pnpm-store/
+.yarn/
+*.tsbuildinfo
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# --- Next.js / build outputs ---
+.next/
+out/
 build/
 dist/
 coverage/
-.DS_Store
-*.log
-*.tsbuildinfo
+.turbo/
+.swc/
+
+# --- Vercel ---
+.vercel/
+
+# --- Tests / tooling artifacts ---
+playwright-report/
+test-results/
+.nyc_output/
+.vitest/
+.eslintcache
+.stylelintcache
+.prettiercache
+
+# --- Prisma / local DB artifacts ---
+prisma/*.db
+*.sqlite
+*.sqlite3
+
+# --- Environment / secrets ---
 .env*
 !.env.example
-prisma/*.db
 .env.test
 .env.production
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# --- Misc ---
+*.pem
+*.key
+*.crt
+*.orig
+*.rej
 
 build-child_process.log
 build-*.log
