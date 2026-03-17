@@ -4,14 +4,15 @@ import { useSession, signOut } from "next-auth/react";
 import { CreditCard, LogOut, User, LayoutDashboard, ShieldCheck } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/src/i18n/navigation";
-import LocaleSwitcher from "@/src/components/ui/LocaleSwitcher";
 import ThemeToggle from "@/src/components/ui/ThemeToggle";
 
 export default function Navbar() {
   const t = useTranslations("nav");
   const { data: session } = useSession();
-  const adminEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL || "amsta405@gmail.com";
-  const isAdmin = session?.user?.email === adminEmail;
+  const adminEmail =
+    process.env.NEXT_PUBLIC_ADMIN_EMAIL ??
+    (process.env.NODE_ENV === "production" ? undefined : "amsta405@gmail.com");
+  const isAdmin = Boolean(adminEmail && session?.user?.email === adminEmail);
 
   return (
     <div className="navbar bg-base-100/80 backdrop-blur-md border-b border-base-200 sticky top-0 z-50 px-4 lg:px-8">
@@ -24,7 +25,6 @@ export default function Navbar() {
         </Link>
       </div>
       <div className="flex-none gap-3">
-        <LocaleSwitcher />
         <ThemeToggle />
         {session ? (
           <div className="dropdown dropdown-end">

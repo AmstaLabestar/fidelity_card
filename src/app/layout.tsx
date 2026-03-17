@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
+import ThemeProvider from "@/src/components/providers/ThemeProvider";
 import "../index.css";
 
 const manrope = localFont({
@@ -40,17 +41,14 @@ export default async function RootLayout({
   const locale = await getLocale();
   const messages = await getMessages();
 
-  const themeScript = `(function(){try{var k='theme';var p=localStorage.getItem(k)||'system';var d=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;var t=(p==='system'?(d?'dark':'light'):p);document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t;document.documentElement.dataset.themePref=p;}catch(e){}})();`;
-
   return (
-    <html lang={locale} data-theme="light" suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-      </head>
+    <html lang={locale} suppressHydrationWarning>
       <body className={manrope.className}>
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          {children}
-        </NextIntlClientProvider>
+        <ThemeProvider>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            {children}
+          </NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

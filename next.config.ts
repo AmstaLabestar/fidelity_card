@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
     root: process.cwd(),
   },
   outputFileTracingRoot: process.cwd(),
+  typescript: {
+    tsconfigPath: "./tsconfig.build.json",
+  },
 };
 
 export default withNextIntl(nextConfig);

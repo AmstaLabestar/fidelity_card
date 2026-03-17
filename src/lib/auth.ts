@@ -5,8 +5,14 @@ import bcrypt from "bcryptjs";
 
 const userRepository = new UserRepository();
 
+const NEXTAUTH_SECRET = process.env.NEXTAUTH_SECRET;
+
+if (process.env.NODE_ENV === "production" && !NEXTAUTH_SECRET) {
+  throw new Error("NEXTAUTH_SECRET must be set in production.");
+}
+
 export const authOptions: NextAuthOptions = {
-  secret: process.env.NEXTAUTH_SECRET || "secret-fallback-for-dev",
+  secret: NEXTAUTH_SECRET || "secret-fallback-for-dev",
   providers: [
     CredentialsProvider({
       name: "Credentials",

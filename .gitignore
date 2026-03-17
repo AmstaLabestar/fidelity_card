@@ -10,3 +10,9 @@ coverage/
 .env*
 !.env.example
 prisma/*.db
+.env.test
+.env.production
+
+build-child_process.log
+build-*.log
+
