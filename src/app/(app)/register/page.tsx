@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { CreditCard, Loader2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link, useRouter } from "@/src/i18n/navigation";
 import { registerUser } from "@/src/modules/auth/controllers/authActions";
 
-export default function RegisterPage() {
+function RegisterForm() {
   const t = useTranslations("auth.register");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -130,3 +130,10 @@ export default function RegisterPage() {
   );
 }
 
+export default function RegisterPage() {
+  return (
+    <Suspense fallback={<Loader2 className="animate-spin text-primary" size={48} />}>
+      <RegisterForm />
+    </Suspense>
+  );
+}

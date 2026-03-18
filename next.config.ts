@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
     root: process.cwd(),
   },
   outputFileTracingRoot: process.cwd(),
+  output: "standalone",
   poweredByHeader: false,
   typescript: {
     tsconfigPath: "./tsconfig.build.json",
