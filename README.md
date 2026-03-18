@@ -73,3 +73,38 @@ We use **Agile Sprint Development**. Each feature is implemented in isolated spr
 - **Sprint 1**: Foundation & Landing Page (Completed)
 - **Sprint 2**: Authentication & User Registration (Planned)
 - **Sprint 3**: Pre-order System & Dashboard (Planned)
+
+## Docker + CI/CD (VPS)
+
+### Local (Docker)
+
+Build & run:
+```bash
+docker build -t fidelity_card .
+docker run --rm -p 3000:3000 --env-file .env fidelity_card
+```
+
+### VPS (Docker Compose)
+
+1) Install Docker + Docker Compose plugin on the VPS.
+2) On the VPS, create an app directory (example: `/opt/fidelity_card`) containing:
+   - `docker-compose.yml` (from this repo)
+   - `.env.production` (NOT committed)
+3) Start:
+```bash
+docker compose pull
+docker compose run --rm web npx prisma migrate deploy
+docker compose up -d
+```
+
+### GitHub Actions (CI/CD)
+
+Workflow: `.github/workflows/cicd.yml`
+
+Required GitHub Secrets:
+- `VPS_HOST`: VPS hostname/IP
+- `VPS_USER`: SSH user (e.g. `deploy`)
+- `VPS_SSH_KEY`: private SSH key for the VPS user
+- `VPS_APP_DIR`: app directory on VPS (e.g. `/opt/fidelity_card`)
+- `GHCR_USER`: GitHub username/org for pulling images
+- `GHCR_TOKEN`: token with `read:packages` (or make the GHCR image public)
