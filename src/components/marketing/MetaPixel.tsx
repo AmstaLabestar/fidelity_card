@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 import Script from "next/script";
-import { useSearchParams } from "next/navigation";
 import { usePathname } from "@/src/i18n/navigation";
 import { trackMetaPageView } from "@/src/lib/metaPixel";
 
@@ -10,12 +9,11 @@ const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID?.trim();
 
 export default function MetaPixel() {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   useEffect(() => {
     if (!pixelId) return;
     trackMetaPageView();
-  }, [pathname, searchParams]);
+  }, [pathname]);
 
   if (!pixelId) return null;
 

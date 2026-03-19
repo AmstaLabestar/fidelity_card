@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import { Link } from "@/src/i18n/navigation";
 import { appendTrackingParams } from "@/src/lib/tracking";
 
@@ -12,8 +12,12 @@ type TrackedLinkProps = {
 };
 
 export default function TrackedLink({ href, className, children }: TrackedLinkProps) {
-  const searchParams = useSearchParams();
-  const trackedHref = appendTrackingParams(href, searchParams);
+  const [trackedHref, setTrackedHref] = useState(() => appendTrackingParams(href));
+
+  useEffect(() => {
+    const nextHref = appendTrackingParams(href, new URLSearchParams(window.location.search));
+    setTrackedHref(nextHref);
+  }, [href]);
 
   return (
     <Link href={trackedHref} className={className}>
