@@ -5,10 +5,11 @@ import { authOptions } from "@/src/lib/auth";
 import { PreorderService } from "@/src/services/PreorderService";
 import { revalidatePath } from "next/cache";
 import { rateLimit } from "@/src/lib/rateLimit";
+import { normalizeTrackingParams, TrackingParams } from "@/src/lib/tracking";
 
 const preorderService = new PreorderService();
 
-export async function createPreorder(quantity: number) {
+export async function createPreorder(quantity: number, tracking?: TrackingParams) {
   const session = await getServerSession(authOptions);
 
   if (!session || !session.user) {
@@ -21,9 +22,10 @@ export async function createPreorder(quantity: number) {
     const check = rateLimit(`preorder:create:user:${userId}`, { windowMs: 60 * 60 * 1000, max: 30 });
     if (!check.ok) return { errorCode: "RATE_LIMITED" as const };
 
-    const preorder = await preorderService.placePreorder(userId, quantity);
+    const preorder = await preorderService.placePreorder(userId, quantity, normalizeTrackingParams(tracking));
 
     revalidatePath("/dashboard");
+    revalidatePath("/admin");
     return { success: true };
   } catch (error: any) {
     console.error("Preorder error:", error);

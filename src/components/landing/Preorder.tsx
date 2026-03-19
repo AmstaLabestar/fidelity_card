@@ -21,6 +21,8 @@ export default function Preorder() {
                   <TrackedLink
                     href="/register?intent=preorder"
                     className="btn btn-primary btn-lg rounded-full px-6 sm:px-10 w-full sm:w-auto group"
+                    trackingLocation="preorder_section"
+                    trackingLabel="preorder_cta"
                   >
                     {t("cta")}
                     <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />

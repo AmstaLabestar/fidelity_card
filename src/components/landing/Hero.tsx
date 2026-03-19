@@ -32,6 +32,8 @@ export default function Hero() {
               <TrackedLink
                 href="/register?intent=preorder"
                 className="btn btn-primary btn-lg rounded-full px-6 sm:px-10 w-full sm:w-auto group"
+                trackingLocation="hero"
+                trackingLabel="primary_preorder"
               >
                 {t("primaryCta")}
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />

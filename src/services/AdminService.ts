@@ -19,11 +19,12 @@ export class AdminService {
   }
 
   async getGlobalStats() {
-    const [totalUsers, totalOrders, totalCards, statusCounts] = await Promise.all([
+    const [totalUsers, totalOrders, totalCards, statusCounts, topCampaigns] = await Promise.all([
       this.userRepository.countAll(),
       this.preorderRepository.countAll(),
       this.preorderRepository.sumTotalQuantity(),
       this.preorderRepository.countByStatus(),
+      this.preorderRepository.countByCampaign(5),
     ]);
 
     const pricePerCardXof = getCardPriceXof();
@@ -34,6 +35,7 @@ export class AdminService {
       totalOrders,
       totalCards,
       statusCounts,
+      topCampaigns,
       pricePerCardXof,
       estimatedRevenueXof,
     };

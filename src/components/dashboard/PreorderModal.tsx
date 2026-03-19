@@ -4,7 +4,9 @@ import { useEffect, useMemo, useState } from "react";
 import { createPreorder } from "@/src/modules/preorders/controllers/preorderActions";
 import { Loader2, ShoppingCart, X } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { trackGooglePreorder } from "@/src/lib/googleAnalytics";
 import { trackMetaPreorder } from "@/src/lib/metaPixel";
+import { getStoredTrackingParams } from "@/src/lib/tracking";
 
 interface PreorderModalProps {
   isOpen: boolean;
@@ -39,12 +41,13 @@ export default function PreorderModal({ isOpen, onClose }: PreorderModalProps) {
     setIsLoading(true);
     setErrorCode(null);
 
-    const result = await createPreorder(quantity);
+    const result = await createPreorder(quantity, getStoredTrackingParams());
 
     if ("errorCode" in result) {
       setErrorCode(result.errorCode);
       setIsLoading(false);
     } else {
+      trackGooglePreorder(quantity);
       trackMetaPreorder(quantity);
       setIsLoading(false);
       onClose();

@@ -132,6 +132,30 @@ export default async function AdminDashboardPage() {
             </div>
           </div>
 
+          <div className="card bg-base-100 shadow-xl border border-base-200">
+            <div className="card-body">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-xs uppercase tracking-widest font-bold opacity-50">{t("stats.topCampaigns")}</h2>
+                <ShoppingBag className="text-primary" size={20} />
+              </div>
+              {stats.topCampaigns.length > 0 ? (
+                <div className="space-y-3">
+                  {stats.topCampaigns.map((item) => (
+                    <div key={`${item.source}:${item.campaign}`} className="flex items-center justify-between gap-3">
+                      <div className="min-w-0">
+                        <p className="font-semibold truncate">{item.campaign}</p>
+                        <p className="text-xs opacity-60 truncate">{item.source}</p>
+                      </div>
+                      <span className="badge badge-primary badge-outline font-bold">{numberFormatter.format(item.total)}</span>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-sm opacity-60">{t("noCampaigns")}</p>
+              )}
+            </div>
+          </div>
+
           <div className="card bg-base-100 shadow-xl border border-base-200 lg:col-span-2 overflow-hidden">
             <div className="p-6 border-b border-base-200 bg-base-200/30">
               <h3 className="font-bold text-xl">{t("sections.recent")}</h3>
@@ -144,6 +168,8 @@ export default async function AdminDashboardPage() {
                       <tr className="bg-base-200/50">
                         <th>{t("table.order")}</th>
                         <th>{t("table.customer")}</th>
+                        <th>{t("table.source")}</th>
+                        <th>{t("table.campaign")}</th>
                         <th>{t("table.qty")}</th>
                         <th>{t("table.status")}</th>
                         <th>{t("table.date")}</th>
@@ -154,6 +180,8 @@ export default async function AdminDashboardPage() {
                         const shortId = order.id.length > 10 ? `${order.id.slice(0, 8)}...` : order.id;
                         const created = new Date(order.createdAt);
                         const displayCustomer = order.user.name?.trim() ? order.user.name : order.user.email;
+                        const source = order.utmSource ?? order.user.utmSource ?? t("direct");
+                        const campaign = order.utmCampaign ?? order.user.utmCampaign ?? t("unknownCampaign");
                         const statusLabel =
                           order.status === "pending"
                             ? t("status.pending")
@@ -181,6 +209,8 @@ export default async function AdminDashboardPage() {
                                 <div className="text-xs opacity-60">{order.user.phone}</div>
                               ) : null}
                             </td>
+                            <td className="text-sm opacity-70">{source}</td>
+                            <td className="text-sm opacity-70">{campaign}</td>
                             <td className="font-bold">{order.quantity}</td>
                             <td>
                               <span

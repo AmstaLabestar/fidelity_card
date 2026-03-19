@@ -201,7 +201,8 @@
       "confirmed": "Confirmed",
       "delivered": "Delivered",
       "price": "Unit price",
-      "revenue": "Est. revenue"
+      "revenue": "Est. revenue",
+      "topCampaigns": "Top campaigns"
     },
     "status": {
       "pending": "Pending",
@@ -214,13 +215,18 @@
     "table": {
       "order": "Order",
       "customer": "Customer",
+      "source": "Source",
+      "campaign": "Campaign",
       "qty": "Qty",
       "status": "Status",
       "date": "Date"
     },
     "priceNotSet": "Not set",
     "priceHint": "Set CARD_PRICE_XOF in .env (e.g. 1500).",
-    "empty": "No preorders yet."
+    "empty": "No preorders yet.",
+    "noCampaigns": "No campaign attribution yet.",
+    "direct": "Direct",
+    "unknownCampaign": "Unknown"
   },
   "auth": {
     "register": {

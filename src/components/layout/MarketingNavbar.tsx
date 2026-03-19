@@ -28,6 +28,8 @@ export default function MarketingNavbar() {
           <TrackedLink
             href="/register?intent=preorder"
             className="btn btn-primary btn-sm rounded-full px-6 shadow-lg shadow-primary/20"
+            trackingLocation="marketing_navbar"
+            trackingLabel="desktop_preorder"
           >
             {t("preorder")}
           </TrackedLink>
@@ -78,7 +80,12 @@ export default function MarketingNavbar() {
               </Link>
             </li>
             <li>
-              <TrackedLink href="/register?intent=preorder" className="py-3 font-bold text-primary">
+              <TrackedLink
+                href="/register?intent=preorder"
+                className="py-3 font-bold text-primary"
+                trackingLocation="marketing_navbar"
+                trackingLabel="mobile_preorder"
+              >
                 {t("preorder")}
               </TrackedLink>
             </li>

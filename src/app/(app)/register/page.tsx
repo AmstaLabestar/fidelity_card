@@ -5,8 +5,9 @@ import { useSearchParams } from "next/navigation";
 import { CreditCard, Loader2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link, useRouter } from "@/src/i18n/navigation";
+import { trackGoogleSignUp } from "@/src/lib/googleAnalytics";
 import { registerUser } from "@/src/modules/auth/controllers/authActions";
-import { appendTrackingParams } from "@/src/lib/tracking";
+import { appendTrackingParams, extractTrackingParams, getStoredTrackingParams } from "@/src/lib/tracking";
 
 function RegisterForm() {
   const t = useTranslations("auth.register");
@@ -22,7 +23,11 @@ function RegisterForm() {
     setError(null);
 
     const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries()) as any;
+    const data = {
+      ...Object.fromEntries(formData.entries()),
+      ...getStoredTrackingParams(),
+      ...extractTrackingParams(searchParams),
+    } as any;
 
     const result = await registerUser(data);
 
@@ -32,6 +37,7 @@ function RegisterForm() {
       return;
     }
 
+    trackGoogleSignUp();
     const next = new URLSearchParams();
     next.set("registered", "true");
     if (intent) next.set("intent", intent);

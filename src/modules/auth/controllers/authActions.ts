@@ -6,6 +6,7 @@ import bcrypt from "bcryptjs";
 import { Prisma } from "@prisma/client";
 import { headers } from "next/headers";
 import { getClientIpFromHeaders, rateLimit } from "@/src/lib/rateLimit";
+import { normalizeTrackingParams } from "@/src/lib/tracking";
 
 const userRepository = new UserRepository();
 
@@ -16,7 +17,7 @@ export async function registerUser(data: RegisterInput) {
     return { error: "Invalid input data" };
   }
 
-  const { name, email, password, phone } = validated.data;
+  const { name, email, password, phone, ...trackingInput } = validated.data;
 
   try {
     const hdrs = await headers();
@@ -33,12 +34,19 @@ export async function registerUser(data: RegisterInput) {
     }
 
     const hashedPassword = await bcrypt.hash(password, 12);
+    const tracking = normalizeTrackingParams(trackingInput);
 
     await userRepository.create({
       name,
       email: normalizedEmail,
       password: hashedPassword,
       phone,
+      utmSource: tracking.utm_source,
+      utmMedium: tracking.utm_medium,
+      utmCampaign: tracking.utm_campaign,
+      utmContent: tracking.utm_content,
+      utmTerm: tracking.utm_term,
+      fbclid: tracking.fbclid,
     });
 
     return { success: true };

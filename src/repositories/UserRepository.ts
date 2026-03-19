@@ -1,5 +1,6 @@
 import prisma from '@/src/lib/prisma';
 import { User } from '@prisma/client';
+import { TrackingParams } from "@/src/lib/tracking";
 
 export interface IUserRepository {
   findByEmail(email: string): Promise<User | null>;
@@ -23,6 +24,20 @@ export class UserRepository implements IUserRepository {
   async create(data: any): Promise<User> {
     return prisma.user.create({
       data,
+    });
+  }
+
+  async updateTracking(userId: string, tracking: TrackingParams): Promise<User> {
+    return prisma.user.update({
+      where: { id: userId },
+      data: {
+        utmSource: tracking.utm_source,
+        utmMedium: tracking.utm_medium,
+        utmCampaign: tracking.utm_campaign,
+        utmContent: tracking.utm_content,
+        utmTerm: tracking.utm_term,
+        fbclid: tracking.fbclid,
+      },
     });
   }
 

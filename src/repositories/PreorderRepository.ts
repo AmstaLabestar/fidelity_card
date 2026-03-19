@@ -1,13 +1,14 @@
 import prisma from '@/src/lib/prisma';
 import { Preorder, Prisma } from '@prisma/client';
+import { TrackingParams } from "@/src/lib/tracking";
 
 export type PreorderWithUser = Prisma.PreorderGetPayload<{
-  include: { user: { select: { name: true; email: true; phone: true } } };
+  include: { user: { select: { name: true; email: true; phone: true; utmSource: true; utmCampaign: true } } };
 }>;
 
 export interface IPreorderRepository {
   findByUserId(userId: string): Promise<Preorder[]>;
-  create(data: { userId: string; quantity: number }): Promise<Preorder>;
+  create(data: { userId: string; quantity: number; tracking?: TrackingParams }): Promise<Preorder>;
   countAll(): Promise<number>;
   sumTotalQuantity(): Promise<number>;
 }
@@ -20,12 +21,18 @@ export class PreorderRepository implements IPreorderRepository {
     });
   }
 
-  async create(data: { userId: string; quantity: number }): Promise<Preorder> {
+  async create(data: { userId: string; quantity: number; tracking?: TrackingParams }): Promise<Preorder> {
     return prisma.preorder.create({
       data: {
         userId: data.userId,
         quantity: data.quantity,
         status: 'pending',
+        utmSource: data.tracking?.utm_source,
+        utmMedium: data.tracking?.utm_medium,
+        utmCampaign: data.tracking?.utm_campaign,
+        utmContent: data.tracking?.utm_content,
+        utmTerm: data.tracking?.utm_term,
+        fbclid: data.tracking?.fbclid,
       },
     });
   }
@@ -66,9 +73,31 @@ export class PreorderRepository implements IPreorderRepository {
             name: true,
             email: true,
             phone: true,
+            utmSource: true,
+            utmCampaign: true,
           },
         },
       },
     });
+  }
+
+  async countByCampaign(limit = 5): Promise<Array<{ source: string; campaign: string; total: number }>> {
+    const rows = await prisma.preorder.groupBy({
+      by: ["utmSource", "utmCampaign"],
+      where: {
+        OR: [{ utmSource: { not: null } }, { utmCampaign: { not: null } }],
+      },
+      _count: { _all: true },
+      orderBy: {
+        _count: { _all: "desc" },
+      },
+      take: limit,
+    });
+
+    return rows.map((row) => ({
+      source: row.utmSource ?? "direct",
+      campaign: row.utmCampaign ?? "unknown",
+      total: row._count._all,
+    }));
   }
 }

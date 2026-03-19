@@ -22,6 +22,8 @@ export default function CTA() {
             <TrackedLink
               href="/register?intent=preorder"
               className="btn btn-neutral btn-lg rounded-full px-6 sm:px-12 text-base sm:text-lg w-full sm:w-auto group dark:border-white/20 dark:bg-white dark:text-neutral"
+              trackingLocation="final_cta"
+              trackingLabel="final_preorder"
             >
               {t("cta")}
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />

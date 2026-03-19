@@ -6,6 +6,7 @@ import { signIn } from "next-auth/react";
 import { CreditCard, Loader2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link, useRouter } from "@/src/i18n/navigation";
+import { trackGoogleLogin } from "@/src/lib/googleAnalytics";
 import { appendTrackingParams } from "@/src/lib/tracking";
 
 function LoginForm() {
@@ -38,6 +39,7 @@ function LoginForm() {
       return;
     }
 
+    trackGoogleLogin("credentials", intent);
     const nextPath = intent === "preorder" ? "/dashboard?preorder=1" : "/dashboard";
     router.push(appendTrackingParams(nextPath, searchParams));
   }

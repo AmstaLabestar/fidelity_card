@@ -201,7 +201,8 @@
       "confirmed": "Confirmées",
       "delivered": "Livrées",
       "price": "Tarif unitaire",
-      "revenue": "CA estimé"
+      "revenue": "CA estimé",
+      "topCampaigns": "Campagnes performantes"
     },
     "status": {
       "pending": "En attente",
@@ -214,13 +215,18 @@
     "table": {
       "order": "Commande",
       "customer": "Client",
+      "source": "Source",
+      "campaign": "Campagne",
       "qty": "Qté",
       "status": "Statut",
       "date": "Date"
     },
     "priceNotSet": "Non configuré",
     "priceHint": "Définissez CARD_PRICE_XOF dans .env (ex: 1500).",
-    "empty": "Aucune précommande pour l'instant."
+    "empty": "Aucune précommande pour l'instant.",
+    "noCampaigns": "Aucune attribution de campagne pour l'instant.",
+    "direct": "Direct",
+    "unknownCampaign": "Inconnue"
   },
   "auth": {
     "register": {
