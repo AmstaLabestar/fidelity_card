@@ -1,5 +1,6 @@
 import prisma from '@/src/lib/prisma';
-import { Preorder, Prisma } from '@prisma/client';
+import { Prisma } from '@prisma/client';
+import { Preorder } from '@prisma/client';
 import { TrackingParams } from "@/src/lib/tracking";
 
 export type PreorderWithUser = Prisma.PreorderGetPayload<{
@@ -82,22 +83,24 @@ export class PreorderRepository implements IPreorderRepository {
   }
 
   async countByCampaign(limit = 5): Promise<Array<{ source: string; campaign: string; total: number }>> {
-    const rows = await prisma.preorder.groupBy({
-      by: ["utmSource", "utmCampaign"],
-      where: {
-        OR: [{ utmSource: { not: null } }, { utmCampaign: { not: null } }],
-      },
-      _count: { _all: true },
-      orderBy: {
-        _count: { _all: "desc" },
-      },
-      take: limit,
-    });
+    const rows = await prisma.$queryRaw<Array<{ source: string | null; campaign: string | null; total: bigint }>>(
+      Prisma.sql`
+        SELECT
+          "utmSource" AS source,
+          "utmCampaign" AS campaign,
+          COUNT(*) AS total
+        FROM "Preorder"
+        WHERE "utmSource" IS NOT NULL OR "utmCampaign" IS NOT NULL
+        GROUP BY "utmSource", "utmCampaign"
+        ORDER BY COUNT(*) DESC
+        LIMIT ${limit}
+      `
+    );
 
     return rows.map((row) => ({
-      source: row.utmSource ?? "direct",
-      campaign: row.utmCampaign ?? "unknown",
-      total: row._count._all,
+      source: row.source ?? "direct",
+      campaign: row.campaign ?? "unknown",
+      total: Number(row.total),
     }));
   }
 }
