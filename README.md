@@ -108,3 +108,4 @@ Required GitHub Secrets:
 - `VPS_APP_DIR`: app directory on VPS (e.g. `/opt/fidelity_card`)
 - `GHCR_USER`: GitHub username/org for pulling images
 - `GHCR_TOKEN`: token with `read:packages` (or make the GHCR image public)
+- `NEXT_PUBLIC_META_PIXEL_ID`: Meta Pixel ID injected at Docker build time for the landing page

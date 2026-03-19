@@ -1,15 +1,16 @@
 import { ArrowRight, CreditCard, MessageCircle, QrCode } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { Link } from "@/src/i18n/navigation";
+import TrackedLink from "@/src/components/marketing/TrackedLink";
 
 export default function Hero() {
   const t = useTranslations("landing.hero");
 
   return (
     <section className="relative overflow-hidden bg-base-100 pt-10 pb-12 sm:pt-20 sm:pb-24 lg:pt-28 lg:pb-28">
-      <div className="absolute inset-0 -z-10 opacity-10 pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[45%] h-[45%] bg-primary rounded-full blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[45%] h-[45%] bg-secondary rounded-full blur-[120px]" />
+      <div className="absolute inset-0 -z-10 pointer-events-none">
+        <div className="absolute inset-x-0 top-0 h-[72%] bg-[radial-gradient(circle_at_top_left,oklch(var(--color-primary)/0.2),transparent_42%),radial-gradient(circle_at_bottom_right,oklch(var(--color-secondary)/0.16),transparent_38%)]" />
+        <div className="absolute left-[-12%] top-[8%] h-72 w-72 rounded-full bg-primary/12 blur-[120px]" />
+        <div className="absolute right-[-10%] bottom-[4%] h-72 w-72 rounded-full bg-secondary/10 blur-[140px]" />
       </div>
 
       <div className="container mx-auto px-4 md:px-8">
@@ -28,13 +29,13 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
-              <Link
+              <TrackedLink
                 href="/register?intent=preorder"
                 className="btn btn-primary btn-lg rounded-full px-6 sm:px-10 w-full sm:w-auto group"
               >
                 {t("primaryCta")}
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
-              </Link>
+              </TrackedLink>
               <a
                 href="#how-it-works"
                 className="btn btn-ghost btn-lg rounded-full px-6 sm:px-10 w-full sm:w-auto"
@@ -60,38 +61,65 @@ export default function Hero() {
           </div>
 
           <div className="flex-1 w-full">
-            <div className="relative mx-auto max-w-md aspect-[1.586/1] bg-gradient-to-br from-neutral to-neutral-focus rounded-2xl shadow-2xl p-7 sm:p-8 text-white flex flex-col justify-between overflow-hidden border border-white/10">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl -mr-32 -mt-32" />
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/10 rounded-full blur-3xl -ml-32 -mb-32" />
+            <div className="relative mx-auto max-w-[26rem]">
+              <div className="absolute inset-0 translate-y-5 scale-[0.96] rounded-[2.2rem] bg-primary/18 blur-3xl" />
+              <div className="absolute inset-x-8 -top-3 h-14 rounded-full bg-primary/35 blur-2xl" />
 
+              <div className="relative aspect-[1.58/1] overflow-hidden border border-primary/20 bg-[linear-gradient(135deg,oklch(14%_0.02_155)_0%,oklch(9%_0.018_150)_45%,oklch(13%_0.03_155)_100%)] p-7 text-white shadow-[0_25px_80px_-30px_oklch(0%_0_0_/0.85)] [border-radius:1.75rem_1.75rem_1.75rem_3.4rem] sm:p-8">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_28%_24%,oklch(var(--color-primary)/0.22),transparent_20%),radial-gradient(circle_at_78%_28%,oklch(var(--color-primary)/0.16),transparent_18%),radial-gradient(circle_at_50%_120%,oklch(var(--color-secondary)/0.2),transparent_42%)]" />
+                <div className="absolute inset-[1px] border border-white/5 [border-radius:1.7rem_1.7rem_1.7rem_3.3rem]" />
+                <div className="absolute left-6 top-6 h-14 w-14 rounded-2xl border border-primary/35 bg-primary/12 shadow-[0_0_22px_oklch(var(--color-primary)/0.32)]" />
+                <div className="absolute right-7 top-9 flex flex-col gap-2">
+                  <div className="grid grid-cols-3 gap-2">
+                    <span className="h-3 w-3 rounded-[0.28rem] bg-primary/95 shadow-[0_0_10px_oklch(var(--color-primary)/0.45)]" />
+                    <span className="h-3 w-3 rounded-[0.28rem] bg-primary/75" />
+                    <span className="h-3 w-3 rounded-[0.28rem] bg-primary/55" />
+                  </div>
+                  <div className="grid grid-cols-2 gap-2 self-end pr-1">
+                    <span className="h-3 w-3 rounded-[0.28rem] bg-primary/75" />
+                    <span className="h-3 w-3 rounded-[0.28rem] bg-primary/95" />
+                  </div>
+                </div>
+                <div className="absolute left-0 right-0 top-[4.7rem] h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
+              <div className="relative flex h-full flex-col justify-between">
               <div className="flex justify-between items-start">
                 <div className="flex flex-col">
-                  <span className="text-xs uppercase tracking-widest opacity-60 font-semibold mb-1">
+                  <span className="mb-1 text-[0.68rem] uppercase tracking-[0.38em] text-white/40 font-semibold">
                     SmartCard
                   </span>
                   <span className="font-black text-xl tracking-tight">{t("primaryCta")}</span>
                 </div>
-                <div className="w-11 h-11 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-md">
+                <div className="flex h-11 w-11 items-center justify-center rounded-full border border-primary/20 bg-white/6 backdrop-blur-md">
                   <CreditCard size={22} />
                 </div>
               </div>
 
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-3">
+                <div className="text-[0.68rem] uppercase tracking-[0.5em] text-white/20">
+                  Carte de reductions
+                </div>
+                <div className="text-[2rem] font-black tracking-[0.06em] text-primary drop-shadow-[0_0_12px_oklch(var(--color-primary)/0.22)] sm:text-[2.25rem]">
+                  SMARTCARD
+                </div>
                 <div className="flex flex-wrap sm:flex-nowrap gap-x-3 gap-y-1 text-base sm:text-lg font-mono tracking-[0.18em] sm:tracking-[0.22em] opacity-80">
                   <span>****</span>
                   <span>****</span>
                   <span>****</span>
                   <span>2026</span>
                 </div>
-                <div className="flex justify-between items-end mt-3">
-                  <div className="flex flex-col">
-                    <span className="font-semibold tracking-wide">SMARTCARD</span>
+                <div className="mt-3 flex justify-between items-end">
+                  <div className="flex flex-col gap-1">
+                    <span className="text-xs uppercase tracking-[0.35em] text-white/35">By Tanga Group</span>
+                    <span className="h-1.5 w-10 rounded-full bg-primary shadow-[0_0_14px_oklch(var(--color-primary)/0.35)]" />
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-10 h-10 bg-white/20 rounded-full border border-white/20" />
-                    <div className="w-10 h-10 bg-white/20 rounded-full -ml-6 border border-white/20" />
+                    <div className="h-10 w-10 rounded-full border border-white/15 bg-white/16" />
+                    <div className="-ml-6 h-10 w-10 rounded-full border border-white/15 bg-white/16" />
                   </div>
                 </div>
+              </div>
+              </div>
               </div>
             </div>
           </div>

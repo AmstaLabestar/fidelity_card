@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { Link } from "@/src/i18n/navigation";
+import TrackedLink from "@/src/components/marketing/TrackedLink";
 
 export default function Preorder() {
   const t = useTranslations("landing.preorder");
@@ -18,13 +18,13 @@ export default function Preorder() {
                   <p className="text-xs sm:text-sm text-base-content/60">{t("note")}</p>
                 </div>
                 <div className="flex flex-col gap-3">
-                  <Link
+                  <TrackedLink
                     href="/register?intent=preorder"
                     className="btn btn-primary btn-lg rounded-full px-6 sm:px-10 w-full sm:w-auto group"
                   >
                     {t("cta")}
                     <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
-                  </Link>
+                  </TrackedLink>
                   <a href="#faq" className="btn btn-ghost rounded-full w-full sm:w-auto">
                     {t("faqCta")}
                   </a>

@@ -6,6 +6,7 @@ import { CreditCard, Loader2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link, useRouter } from "@/src/i18n/navigation";
 import { registerUser } from "@/src/modules/auth/controllers/authActions";
+import { appendTrackingParams } from "@/src/lib/tracking";
 
 function RegisterForm() {
   const t = useTranslations("auth.register");
@@ -34,7 +35,8 @@ function RegisterForm() {
     const next = new URLSearchParams();
     next.set("registered", "true");
     if (intent) next.set("intent", intent);
-    router.push(`/login?${next.toString()}`);
+    const nextHref = appendTrackingParams(`/login?${next.toString()}`, searchParams);
+    router.push(nextHref);
   }
 
   return (
@@ -121,7 +123,7 @@ function RegisterForm() {
             {t("already")}
           </div>
 
-          <Link href="/login" className="btn btn-outline w-full rounded-xl">
+          <Link href={appendTrackingParams("/login", searchParams)} className="btn btn-outline w-full rounded-xl">
             {t("loginCta")}
           </Link>
         </div>

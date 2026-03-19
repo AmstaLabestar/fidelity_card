@@ -1,6 +1,8 @@
-import { CreditCard, Facebook, Instagram, Linkedin, MessageCircle } from "lucide-react";
+import { Facebook, Instagram, Linkedin, MessageCircle } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/src/i18n/navigation";
+import BrandMark from "@/src/components/layout/BrandMark";
+import BrandText from "@/src/components/layout/BrandText";
 
 export default function Footer() {
   const t = useTranslations("footer");
@@ -9,10 +11,8 @@ export default function Footer() {
     <footer className="footer p-6 sm:p-10 bg-base-200 text-base-content border-t border-base-300">
       <aside>
         <div className="flex items-center gap-2 font-bold text-2xl tracking-tighter mb-4">
-          <div className="bg-primary text-primary-content p-2 rounded-xl">
-            <CreditCard size={24} />
-          </div>
-          <span>SmartCard</span>
+          <BrandMark size="md" />
+          <BrandText className="text-2xl font-bold tracking-tighter" />
         </div>
         <p>{t("tagline")}</p>
       </aside> 

@@ -6,6 +6,7 @@ import { signIn } from "next-auth/react";
 import { CreditCard, Loader2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link, useRouter } from "@/src/i18n/navigation";
+import { appendTrackingParams } from "@/src/lib/tracking";
 
 function LoginForm() {
   const t = useTranslations("auth.login");
@@ -38,7 +39,7 @@ function LoginForm() {
     }
 
     const nextPath = intent === "preorder" ? "/dashboard?preorder=1" : "/dashboard";
-    router.push(nextPath);
+    router.push(appendTrackingParams(nextPath, searchParams));
   }
 
   return (
@@ -107,7 +108,7 @@ function LoginForm() {
           {t("newHere")}
         </div>
 
-        <Link href="/register" className="btn btn-outline w-full rounded-xl">
+        <Link href={appendTrackingParams("/register", searchParams)} className="btn btn-outline w-full rounded-xl">
           {t("registerCta")}
         </Link>
       </div>
@@ -124,4 +125,3 @@ export default function LoginPage() {
     </div>
   );
 }
-

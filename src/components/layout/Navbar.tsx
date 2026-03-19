@@ -1,10 +1,12 @@
 "use client";
 
 import { useSession, signOut } from "next-auth/react";
-import { CreditCard, LogOut, User, LayoutDashboard, ShieldCheck } from "lucide-react";
+import { LogOut, User, LayoutDashboard, ShieldCheck } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/src/i18n/navigation";
 import ThemeToggle from "@/src/components/ui/ThemeToggle";
+import BrandMark from "@/src/components/layout/BrandMark";
+import BrandText from "@/src/components/layout/BrandText";
 
 export default function Navbar() {
   const t = useTranslations("nav");
@@ -15,10 +17,8 @@ export default function Navbar() {
     <div className="navbar bg-base-100/80 backdrop-blur-md border-b border-base-200 sticky top-0 z-50 px-4 lg:px-8">
       <div className="flex-1">
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="bg-primary text-primary-content p-1.5 rounded-lg group-hover:rotate-12 transition-transform">
-            <CreditCard size={20} />
-          </div>
-          <span className="text-xl font-black tracking-tighter">SmartCard</span>
+          <BrandMark />
+          <BrandText />
         </Link>
       </div>
       <div className="flex-none gap-3">

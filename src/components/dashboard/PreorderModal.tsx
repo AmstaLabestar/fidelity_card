@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { createPreorder } from "@/src/modules/preorders/controllers/preorderActions";
 import { Loader2, ShoppingCart, X } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { trackMetaPreorder } from "@/src/lib/metaPixel";
 
 interface PreorderModalProps {
   isOpen: boolean;
@@ -44,6 +45,7 @@ export default function PreorderModal({ isOpen, onClose }: PreorderModalProps) {
       setErrorCode(result.errorCode);
       setIsLoading(false);
     } else {
+      trackMetaPreorder(quantity);
       setIsLoading(false);
       onClose();
     }
